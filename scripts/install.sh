@@ -1,5 +1,7 @@
 #!/bin/bash
 
-cd /home/ubuntu/aws-node-demo
+cd /home/ec2-user/aws-node-demo
 
 npm install
+
+sudo npm install -g pm2

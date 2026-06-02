@@ -1,7 +1,9 @@
 #!/bin/bash
 
-cd /home/ubuntu/aws-node-demo
+cd /home/ec2-user/aws-node-demo
 
-pkill node || true
+pm2 delete aws-node-demo || true
 
-nohup node app.js > app.log 2>&1 &
+pm2 start app.js --name aws-node-demo
+
+pm2 save
