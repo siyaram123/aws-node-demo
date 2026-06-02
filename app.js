@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 app.get("/", (req, res) => {
   res.send(`
     <h1>Welcome to AWS AutoDeploy Demo</h1>
-    <a href="/about">About</a><br>
+    <a href="/about">About Me Siyaram</a><br>
     <a href="/contact">This is my new Contact</a><br>
     <a href="/api/users"> My Users API</a>
   `);
