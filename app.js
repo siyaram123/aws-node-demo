@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
     <h1>Welcome to AWS AutoDeploy Demo</h1>
     <a href="/about">About</a><br>
     <a href="/contact">Contact</a><br>
-    <a href="/api/users">Users API</a>
+    <a href="/api/users"> My Users API</a>
   `);
 });
 
