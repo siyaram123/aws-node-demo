@@ -12,10 +12,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                rsync -av --delete ./ /home/ec2-user/aws-node-demo/
-                cd /home/ec2-user/aws-node-demo
-                npm install
-                pm2 restart aws-node-demo || pm2 start app.js --name aws-node-demo
+                    sudo -u ec2-user pm2 restart aws-node-demo || \
+                    sudo -u ec2-user pm2 start app.js --name aws-node-demo
                 '''
             }
         }

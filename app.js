@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
   res.send(`
     <h1>Welcome to AWS AutoDeploy Demo</h1>
     <a href="/about">This is About Me</a><br>
-    <a href="/contact">This is my new Contact</a><br>
+    <a href="/contact">This is my Contact Details</a><br>
     <a href="/api/users"> This is Users API</a>
   `);
 });
