@@ -3,6 +3,12 @@ pipeline {
 
     stages {
 
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
@@ -12,8 +18,19 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    sudo -u ec2-user pm2 restart aws-node-demo || \
-                    sudo -u ec2-user pm2 start app.js --name aws-node-demo
+                mkdir -p /home/ec2-user/aws-node-demo
+
+                rsync -av --delete \
+                --exclude=node_modules \
+                ./ /home/ec2-user/aws-node-demo/
+
+                cd /home/ec2-user/aws-node-demo
+
+                npm install
+
+                pm2 restart aws-node-demo || pm2 start app.js --name aws-node-demo
+
+                pm2 save
                 '''
             }
         }
